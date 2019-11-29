@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Java中通过JDBC连接数据库 - BigsHuangMr</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="&amp;nbsp;&amp;nbsp;Java中如何得到用户存储的在数据库中的数据，通过JDBC来实现Java对数据库的访问。
+
+简介：
+
+ODBC(开放数据库连接)：是微软公司提供的一组对数据库访问规范化标准A,"> 
+    <meta name="author" content="HuangMr"> 
+    <link rel="alternative" href="atom.xml" title="BigsHuangMr" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">BigsHuangMr</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" target="_blank" rel="noopener" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Java中通过JDBC连接数据库</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" target="_blank" rel="noopener" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;" target="_blank" rel="noopener"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Java中通过JDBC连接数据库</h1>
+        <div class="stuff">
+            <span>十一月 28, 2019</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>&nbsp;&nbsp;Java中如何得到用户存储的在数据库中的数据，通过JDBC来实现Java对数据库的访问。</p>
+<a id="more"></a>
+<p><strong>简介：</strong></p>
+<ol>
+<li>ODBC(开放数据库连接)：是微软公司提供的一组对数据库访问规范化标准API。</li>
+<li>JDBC:是OBDC的Java版本。由Sun公司提出的使用Java访问数据库的。</li>
+<li>JDBC的体系结构分为两层：<ol>
+<li>JDBC Driver Interface（驱动程序管理窗口）。</li>
+<li>JDBC API（一系列的接口，它使得应用程序可以进行数据库的连接，执行SQL语句并返回结果集。）</li>
+</ol>
+</li>
+<li><a href="https://baike.baidu.com/item/JDBC%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F/20866650?fr=aladdin" target="_blank" rel="noopener">JDBC的驱动程序</a>：根据访问数据库的技术不同，JDBC驱动的程序相应的分为了四种类型。不同的驱动有着不一样的特性以及使用方法。<br><img src="https://i.imgur.com/fiOsg7Q.png" alt=""><ol>
+<li>JDBC-ODBC桥驱动程序（JDBC-ODBC Brige Driver）</li>
+<li>部分Java的本地JDBC API驱动程序</li>
+<li>纯Java的数据库中间件驱动程序</li>
+<li>纯Java的JDBC驱动程序（通常使用的是这种方式）</li>
+</ol>
+</li>
+</ol>
+<hr>
+<p><strong>准备：</strong></p>
+<p>&nbsp;&nbsp;各数据库厂商都提供对JDBC的支持，我们在对数据库进行连接时需要对应数据库的相关驱动程序文件，我使用的MySQL数据库所导入的就是MySQL的文件（<a href="http://central.maven.org/maven2/mysql/mysql-connector-java/" target="_blank" rel="noopener">mysql-connector-java.jar</a>）<br><strong>注意：</strong> 程序驱动文件的版本要与你数据库的版本对应，如果不匹配会出现错误!</p>
+<pre><code>import java.sql.Connection;
+import java.sql.DriverManager;
+    public class JDBCDemo {
+    //数据库驱动的基本信息
+    public static final String Driver = &quot;com.mysql.cj.jdbc.Driver&quot;;
+    //数据库以及表的链接地址
+    public static final String URL = &quot;jdbc:mysql://localhost:3306/testemp&quot;;
+    //数据库的用户名
+    public static final String USE = &quot;root&quot;;
+    //数据库的密码
+    public static final String PassWord = &quot;root&quot;;
+    Connection connection = null;
+    public JDBCDemo() {
+        try {
+            //1.加载数据库驱动
+            Class.forName(Driver);
+            //2.建立连接
+            connection = DriverManager.getConnection(URL,USE,PassWord);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+    public Connection getConnection(){
+        return this.connection;
+    }
+    //3.关闭连接，释放资源
+    public void close() {
+        try {
+            connection.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+}</code></pre><p><strong>注意：</strong></p>
+<p>我的MySQL版本是8.0及以后的版本所以JDBC驱动的加载为：</p>
+<pre><code>public static final String Driver = &quot;com.mysql.cj.jdbc.Driver&quot;;</code></pre><p>如果你的版本是8.0之前的话驱动的加载为：</p>
+<pre><code>public static final String Driver = &quot;com.mysql.jdbc.Driver&quot;;</code></pre><p>我的数据库连接地址由于我修改数据库的配置文件所以不用设置SSL连接、时区、字符集以及数据库的引擎，但如果你没有更改数据库的配置文件你需要设置：</p>
+<pre><code>public static final String URL = &quot;jdbc:mysql://localhost:3306/testemp?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC&amp;useSLL=false&quot;;</code></pre><p>字符集的设置是为了防止中文乱码，时区设置是当你进行数据库时间操作时与你所在的时区一致。</p>
+<p>8.0之前版本的数据库连接地址应该为：</p>
+<pre><code>public static final String URL = &quot;jdbc:mysql://localhost:3306/testemp?useUnicode=true&amp;autoReconnect=true&quot;;</code></pre><p>其中localhost:3306是指本地地址加上对应的端口号，如果你使用IP地址的话，应该将localhost:3306改为对应的IP地址加上对应的端口号。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

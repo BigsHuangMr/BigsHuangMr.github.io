@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>我的第一篇博客 - BigsHuangMr</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="Java中的基本集合框架&amp;nbsp;&amp;nbsp;在Java中集合与数组类似都用于存储Java中所有数据类型的对象，但与数组相比它优点在于数组一旦被创建它的数组长度就不能被改变而集合的优点就是在于集合,"> 
+    <meta name="author" content="HuangMr"> 
+    <link rel="alternative" href="atom.xml" title="BigsHuangMr" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">BigsHuangMr</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" target="_blank" rel="noopener" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">我的第一篇博客</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" target="_blank" rel="noopener" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;" target="_blank" rel="noopener"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">我的第一篇博客</h1>
+        <div class="stuff">
+            <span>十一月 26, 2019</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h2 id="Java中的基本集合框架"><a href="#Java中的基本集合框架" class="headerlink" title="Java中的基本集合框架"></a>Java中的基本集合框架</h2><h2 id="nbsp-nbsp-在Java中集合与数组类似都用于存储Java中所有数据类型的对象，但与数组相比它优点在于数组一旦被创建它的数组长度就不能被改变而集合的优点就是在于集合是可以改变长度的且数组存储的数据类型只有一种而集合可以存储多种的数据类型。"><a href="#nbsp-nbsp-在Java中集合与数组类似都用于存储Java中所有数据类型的对象，但与数组相比它优点在于数组一旦被创建它的数组长度就不能被改变而集合的优点就是在于集合是可以改变长度的且数组存储的数据类型只有一种而集合可以存储多种的数据类型。" class="headerlink" title="&nbsp;&nbsp;在Java中集合与数组类似都用于存储Java中所有数据类型的对象，但与数组相比它优点在于数组一旦被创建它的数组长度就不能被改变而集合的优点就是在于集合是可以改变长度的且数组存储的数据类型只有一种而集合可以存储多种的数据类型。"></a>&nbsp;&nbsp;在Java中集合与数组类似都用于存储Java中所有数据类型的对象，但与数组相比它优点在于数组一旦被创建它的数组长度就不能被改变而集合的优点就是在于集合是可以改变长度的且数组存储的数据类型只有一种而集合可以存储多种的数据类型。</h2><a id="more"></a>
+<ol>
+<li><p><strong>Collection（接口）集合</strong><br><img src="https://i.imgur.com/pQ8kfxu.png" alt=""><br>由上图可知List集合，Set集合，Vector集合都实现了Collection集合这个接口，但List集合，Set集合和Vector集合三者有着很大的区别。</p>
+<ol>
+<li>List（接口）集合：是一个有序的Collection,这里有序是指存入集合的顺序和从集合中取出来的顺序是一致的。而且List集合可以存储重复的元素。在List集合里有派生了ArrayList与LinkedList它两又有许多的不同之处。<ol>
+<li>ArrayList：底层是基于动态数组构成的，存储情况是一段连续的内存空间，所以在查询数组的某一个元素时Arraylist的速度要快于Linkedlist。且ArrayList是线程不安全的。</li>
+<li>LinkedList：底层是基于链表构成的，存储情况可能是一段联系的内存空间也可能是一段离散的空间，由于是链表结构它就存在指针当进行增加元素或者删除元素时只要根据对应的指针进行操作而ArrayList则需要对全部元素进行一个移位所以在增加与删除操作时LinkedList集合快于ArrayList集合，LinkedList也是线程不安全的</li>
+</ol>
+</li>
+<li>Set（接口）集合：是一个无序的Collection集合，而且它能保证元素的唯一不能存储重复元素。在Set集合中也产生了不一样的子类集合如HashSet和TreeSet。<ol>
+<li>HashSet：底层是基于hash表来实现的，通过hashcode()方法来比较两个元素的hash码进行排序。允许存在null值但只能出现一次因为null的hash码都相同所以不能重复出现。</li>
+<li>TreeSet：底层是基于红黑树，不允许存储null值。</li>
+</ol>
+</li>
+<li>Vector集合：底层基于数组与ArrayList基本相似但不同之处是Vector集合是线程安全的。</li>
+</ol>
+</li>
+<li><p><strong>Map（接口）集合</strong><br><img src="https://i.imgur.com/eEZZFUk.png" alt=""><br>Map集合与Collection集合有所不同的是Map集合是双列集合也就是（key-value）的形式，key值不能重复出现而value可以出现多次。</p>
+<ol>
+<li>TreeMap集合：底层采用的红黑树构成的，它是一个有序的集合，可以根据创建映射时所提供的比较强Comparator来进行比较排序</li>
+<li>HashMap集合：底层采用的是hash表，是无序集合且线程是不安全的。允许（null-null）的组合存在</li>
+<li>HashTable集合：底层也是采用hash表，但它是线程安全的，它无论是key还是value都不允许出现null。</li>
+</ol>
+</li>
+</ol>
+<hr>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
