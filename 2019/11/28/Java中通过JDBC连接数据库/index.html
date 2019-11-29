@@ -49,28 +49,33 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="BigsHuangMr">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+  <meta name="description" content="&amp;nbsp;&amp;nbsp;Java中如何得到用户存储的在数据库中的数据，通过JDBC来实现Java对数据库的访问。 简介：  ODBC(开放数据库连接)：是微软公司提供的一组对数据库访问规范化标准API。 JDBC:是OBDC的Java版本。由Sun公司提出的使用Java访问数据库的。 JDBC的体系结构分为两层： JDBC Driver Interface（驱动程序管理窗口）。 JDBC API（">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java中通过JDBC连接数据库">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;28&#x2F;Java%E4%B8%AD%E9%80%9A%E8%BF%87JDBC%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93&#x2F;index.html">
 <meta property="og:site_name" content="BigsHuangMr">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;Java中如何得到用户存储的在数据库中的数据，通过JDBC来实现Java对数据库的访问。 简介：  ODBC(开放数据库连接)：是微软公司提供的一组对数据库访问规范化标准API。 JDBC:是OBDC的Java版本。由Sun公司提出的使用Java访问数据库的。 JDBC的体系结构分为两层： JDBC Driver Interface（驱动程序管理窗口）。 JDBC API（">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.imgur.com&#x2F;fiOsg7Q.png">
+<meta property="og:updated_time" content="2019-11-29T11:04:50.614Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;i.imgur.com&#x2F;fiOsg7Q.png">
 
-<link rel="canonical" href="http://yoursite.com/">
+<link rel="canonical" href="http://yoursite.com/2019/11/28/Java%E4%B8%AD%E9%80%9A%E8%BF%87JDBC%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
+    isHome: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>BigsHuangMr</title>
+  <title>Java中通过JDBC连接数据库 | BigsHuangMr</title>
   
 
 
@@ -166,10 +171,10 @@
             
 
   <div class="posts-expand">
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/28/Java%E4%B8%AD%E9%80%9A%E8%BF%87JDBC%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -183,8 +188,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/28/Java%E4%B8%AD%E9%80%9A%E8%BF%87JDBC%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-title-link" itemprop="url">Java中通过JDBC连接数据库</a>
+          Java中通过JDBC连接数据库
         </h1>
 
         <div class="post-meta">
@@ -215,7 +219,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>&nbsp;&nbsp;Java中如何得到用户存储的在数据库中的数据，通过JDBC来实现Java对数据库的访问。</p>
+        <p>&nbsp;&nbsp;Java中如何得到用户存储的在数据库中的数据，通过JDBC来实现Java对数据库的访问。</p>
 <p><strong>简介：</strong></p>
 <ol>
 <li>ODBC(开放数据库连接)：是微软公司提供的一组对数据库访问规范化标准API。</li>
@@ -257,113 +261,33 @@
 <p>8.0之前版本的数据库连接地址应该为：</p>
 <pre><code>public static final String URL = &quot;jdbc:mysql://localhost:3306/testemp?useUnicode=true&amp;autoReconnect=true&quot;;</code></pre><p>其中localhost:3306是指本地地址加上对应的端口号，如果你使用IP地址的话，应该将localhost:3306改为对应的IP地址加上对应的端口号。</p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="HuangMr">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BigsHuangMr">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">我的第一篇博客</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-26 18:38:55" itemprop="dateCreated datePublished" datetime="2019-11-26T18:38:55+08:00">2019-11-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-27 18:26:00" itemprop="dateModified" datetime="2019-11-27T18:26:00+08:00">2019-11-27</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Java中的基本集合框架"><a href="#Java中的基本集合框架" class="headerlink" title="Java中的基本集合框架"></a>Java中的基本集合框架</h2><h2 id="nbsp-nbsp-在Java中集合与数组类似都用于存储Java中所有数据类型的对象，但与数组相比它优点在于数组一旦被创建它的数组长度就不能被改变而集合的优点就是在于集合是可以改变长度的且数组存储的数据类型只有一种而集合可以存储多种的数据类型。"><a href="#nbsp-nbsp-在Java中集合与数组类似都用于存储Java中所有数据类型的对象，但与数组相比它优点在于数组一旦被创建它的数组长度就不能被改变而集合的优点就是在于集合是可以改变长度的且数组存储的数据类型只有一种而集合可以存储多种的数据类型。" class="headerlink" title="&nbsp;&nbsp;在Java中集合与数组类似都用于存储Java中所有数据类型的对象，但与数组相比它优点在于数组一旦被创建它的数组长度就不能被改变而集合的优点就是在于集合是可以改变长度的且数组存储的数据类型只有一种而集合可以存储多种的数据类型。"></a>&nbsp;&nbsp;在Java中集合与数组类似都用于存储Java中所有数据类型的对象，但与数组相比它优点在于数组一旦被创建它的数组长度就不能被改变而集合的优点就是在于集合是可以改变长度的且数组存储的数据类型只有一种而集合可以存储多种的数据类型。</h2><ol>
-<li><p><strong>Collection（接口）集合</strong><br><img src="https://i.imgur.com/pQ8kfxu.png" alt=""><br>由上图可知List集合，Set集合，Vector集合都实现了Collection集合这个接口，但List集合，Set集合和Vector集合三者有着很大的区别。</p>
-<ol>
-<li>List（接口）集合：是一个有序的Collection,这里有序是指存入集合的顺序和从集合中取出来的顺序是一致的。而且List集合可以存储重复的元素。在List集合里有派生了ArrayList与LinkedList它两又有许多的不同之处。<ol>
-<li>ArrayList：底层是基于动态数组构成的，存储情况是一段连续的内存空间，所以在查询数组的某一个元素时Arraylist的速度要快于Linkedlist。且ArrayList是线程不安全的。</li>
-<li>LinkedList：底层是基于链表构成的，存储情况可能是一段联系的内存空间也可能是一段离散的空间，由于是链表结构它就存在指针当进行增加元素或者删除元素时只要根据对应的指针进行操作而ArrayList则需要对全部元素进行一个移位所以在增加与删除操作时LinkedList集合快于ArrayList集合，LinkedList也是线程不安全的</li>
-</ol>
-</li>
-<li>Set（接口）集合：是一个无序的Collection集合，而且它能保证元素的唯一不能存储重复元素。在Set集合中也产生了不一样的子类集合如HashSet和TreeSet。<ol>
-<li>HashSet：底层是基于hash表来实现的，通过hashcode()方法来比较两个元素的hash码进行排序。允许存在null值但只能出现一次因为null的hash码都相同所以不能重复出现。</li>
-<li>TreeSet：底层是基于红黑树，不允许存储null值。</li>
-</ol>
-</li>
-<li>Vector集合：底层基于数组与ArrayList基本相似但不同之处是Vector集合是线程安全的。</li>
-</ol>
-</li>
-<li><p><strong>Map（接口）集合</strong><br><img src="https://i.imgur.com/eEZZFUk.png" alt=""><br>Map集合与Collection集合有所不同的是Map集合是双列集合也就是（key-value）的形式，key值不能重复出现而value可以出现多次。</p>
-<ol>
-<li>TreeMap集合：底层采用的红黑树构成的，它是一个有序的集合，可以根据创建映射时所提供的比较强Comparator来进行比较排序</li>
-<li>HashMap集合：底层采用的是hash表，是无序集合且线程是不安全的。允许（null-null）的组合存在</li>
-<li>HashTable集合：底层也是采用hash表，但它是线程安全的，它无论是key还是value都不允许出现null。</li>
-</ol>
-</li>
-</ol>
-<hr>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/11/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" rel="prev" title="我的第一篇博客">
+      <i class="fa fa-chevron-left"></i> 我的第一篇博客
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
   
 
   </div>
-
-  
-
 
 
           </div>
